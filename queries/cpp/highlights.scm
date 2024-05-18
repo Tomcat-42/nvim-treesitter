@@ -6,6 +6,7 @@
 (parameter_declaration
   declarator: (reference_declarator) @variable.parameter)
 
+
 ; function(Foo ...foo)
 (variadic_parameter_declaration
   declarator: (variadic_declarator
@@ -190,12 +191,21 @@
 
 (false) @boolean
 
+((identifier) @constant
+  (#set! "priority" 129)
+  (#lua-match? @constant "^[A-Z][A-Z%d_]*$"))
+
+((field_identifier) @constant
+  (#set! "priority" 129)
+  (#lua-match? @constant "^[A-Z][A-Z%d_]*$"))
+
 ; Literals
 (raw_string_literal) @string
 
 ; Modules
 (module_name
   (identifier) @module)
+
 
 ; Keywords
 [
