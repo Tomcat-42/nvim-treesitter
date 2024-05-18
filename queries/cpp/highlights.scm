@@ -193,6 +193,10 @@
 ; Literals
 (raw_string_literal) @string
 
+; Modules
+(module_name
+  (identifier) @module)
+
 ; Keywords
 [
   "try"
@@ -266,3 +270,9 @@
   ] @punctuation.bracket)
 
 (literal_suffix) @operator
+
+[
+  "import"
+  "export"
+  "module"
+] @keyword.import
